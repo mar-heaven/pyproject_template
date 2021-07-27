@@ -1,4 +1,4 @@
-FROM conda_py38
+FROM centos/python-38-centos7
 
 ARG PKG
 COPY requirements.txt /tmp
