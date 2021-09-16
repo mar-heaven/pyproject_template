@@ -1,9 +1,14 @@
 FROM centos/python-38-centos7
+USER root
+WORKDIR /tmp
 
-ARG PKG
-COPY requirements.txt /tmp
-RUN pip3 install -i https://pypi.douban.com/simple -r /tmp/requirements.txt
-COPY PKG /tmp
-RUN pip3 install /tmp/${PKG}
+COPY requirements.txt /tmp/requirements.txt
 
-RUN rm -rf /tmp/*
+RUN pip install -r /tmp/requirements.txt \
+&&  rm -f /tmp/requirements.txt
+
+COPY ./dist/* /tmp/build/
+
+RUN pip install \
+    /tmp/build/*  \
+&&  rm -rf /tmp/build
