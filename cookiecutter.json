@@ -3,6 +3,6 @@
     "package_name": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
     "project_short_description": "Project Short Description",
-    "is_service": ["y", "n"]
+    "is_service": ["y", "n"],
     "is_opensource": ["y", "n"]
 }
